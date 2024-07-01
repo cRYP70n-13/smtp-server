@@ -50,6 +50,10 @@ func (s *Server) ListenAndAccept() error {
 	return nil
 }
 
+func (s *Server) Stop() error {
+	return s.listener.Close()
+}
+
 func (s *Server) acceptLoop() {
 	for {
 		conn, err := s.listener.Accept()
